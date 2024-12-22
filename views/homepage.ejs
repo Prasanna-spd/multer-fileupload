@@ -42,6 +42,11 @@
         <input type="text" name="originalname" />
         <button type="submit">Download File</button>
     </form>
+    <% if (downloadMessage) { %>
+        <div class="message <%= downloadMessage.type %>">
+            <%= downloadMessage.text %>
+        </div>
+    <% } %>
     <br>
     <br>
     <br>
