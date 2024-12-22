@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        .file-details {
+            margin-top: 20px;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to the File Upload Service</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Upload File</button>
+    </form>
+
+    <% if (message) { %>
+        <div class="message <%= message.type %>">
+            <%= message.text %>
+        </div>
+    <% } %>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3>Enter File-Name to download (Eg.Filename.ext)</h3>
+    <form action="/download" method="get">
+        <input type="text" name="originalname" />
+        <button type="submit">Download File</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3>Enter File-Name to delete (Eg.Filename.ext)</h3>
+    <form action="/delete" method="get">
+        <input type="text" name="originalname" />
+        <button type="submit">Delete File</button>
+    </form>
+    <% if (deleteMessage) { %>
+        <div class="message <%= deleteMessage.type %>">
+            <%= deleteMessage.text %>
+        </div>
+    <% } %>
+</body>
+</html>
